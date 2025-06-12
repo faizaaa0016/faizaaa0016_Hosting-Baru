@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Praktikum Faiza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #301c8f, #701a63);
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+        }
+
+        .header-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 span {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .badge-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: #f8fafc;
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            min-height: 450px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #64748b;
+            flex-grow: 1;
+        }
+
+        .card .badge-container {
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        .card .badge {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .card .badge:hover {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            font-size: 0.95rem;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #4338ca, #5b21b6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn.green {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn.green:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn.orange {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn.orange:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .reason-section {
+            background: #ffffff;
+            color: #333;
+            padding: 4rem 2rem;
+        }
+
+        .reason-section h2 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+
+        .reasons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .reason {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            width: 300px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .reason:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .reason h3 {
+            color: #374151;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .reason p {
+            color: #6b7280;
+        }
+
+        footer {
+            background: #131a27;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin: 0.8rem 0;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #e2e8f0;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                padding: 2rem 1rem;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .reasons {
+                padding: 0 1rem;
+            }
+            
+            .reason {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            h1 span {
+                font-size: 2.5rem;
+            }
+
+            .badge-container {
+                gap: 0.5rem;
+            }
+
+            .badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="header-icon">💻</div>
+            <h1><span>Tugas Praktikum</span></h1>
+            <h2>Website Faiza</h2>
+            <p class="subtitle">Kumpulan Tugas Praktikum Hosting Domain Faiza</p>
+            <div class="badge-container">
+                <span class="badge">Praktikum 3</span>
+                <span class="badge">Praktikum XAMPP</span>
+                <span class="badge">Praktikum Website Belanja</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Praktikum 3</h3>
+            <p>Implementasi struktur HTML, styling CSS, dan interaktivitas JavaScript dengan design responsif dan modern.</p>
+            <div class="badge-container">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Responsive Design</span>
+            </div>
+            <a href="https://faizaaa0016.github.io/faiza0016-Praktikum-3" target="_blank" class="btn">Lihat Proyek</a>
+        </div>
+
+        <div class="card">
+            <h3>Praktikum XAMPP</h3>
+            <p>Eksplorasi konfigurasi server, database management, dan integrasi backend-frontend menggunakan stack XAMPP.</p>
+            <div class="badge-container">
+                <span class="badge">XAMPP</span>
+                <span class="badge">PHP</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Apache Server</span>
+            </div>
+            <a href="https://faizaaa0016.github.io/Prak-XAMPP/" target="_blank" class="btn green">Lihat Proyek</a>
+        </div>
+
+        <div class="card">
+            <h3>Praktikum Website Belanja</h3>
+            <p>Sistem e-commerce checkout lengkap dengan validasi form, kalkulasi harga, dan UI/UX yang optimal untuk pengalaman berbelanja.</p>
+            <div class="badge-container">
+                <span class="badge">E-commerce</span>
+                <span class="badge">Form Validation</span>
+                <span class="badge">UI/UX</span>
+                <span class="badge">Payment Flow</span>
+            </div>
+            <a href="https://faizaaa0016.github.io/Faizaa0016_Prak_Checkout_WEB" target="_blank" class="btn orange">Lihat Proyek</a>
+        </div>
+    </section>
+
+    <section class="reason-section">
+        <h2>Alasan Menggunakan GitHub untuk Mengunggah Tugas</h2>
+
+        <div class="reasons">
+            <div class="reason">
+                <h3>📤 Upload Mudah</h3>
+                <p>GitHub memudahkan pengguna untuk mengunggah domain, link, tugas, dan proyek secara online dengan interface yang user-friendly.</p>
+            </div>
+            <div class="reason">
+                <h3>🔄 Version Control</h3>
+                <p>Pelacakan perubahan kode secara detail dan kemampuan untuk kembali ke versi sebelumnya jika diperlukan dengan mudah.</p>
+            </div>
+            <div class="reason">
+                <h3>🆓 Hosting Gratis</h3>
+                <p>GitHub Pages menyediakan layanan hosting gratis untuk website statis seperti tugas praktikum ini dengan domain yang mudah diakses.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-flex">
+            <div class="footer-section">
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><strong>GitHub :</strong> <a href="https://github.com/faizaaa0016" target="_blank">faizaaa0016</a></li>
+                    <li><strong>Email :</strong> <a href="mailto:faizafitri123@gmail.com">faizafitri123@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024240016_Faiza • Tugas Praktikum Hosting</p>
+        </div>
+    </footer>
+</body>
+</html>
